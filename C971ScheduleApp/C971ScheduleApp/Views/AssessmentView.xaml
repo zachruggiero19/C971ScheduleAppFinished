@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971ScheduleApp.Views.AssessmentView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="AddPerfAssessment" Text="Add Performance Assessment" Clicked="AddPerfAssessment_Clicked"/>
+        <ToolbarItem x:Name="AddObjAssessment" Text="Add Objective Assessment" Clicked="AddObjAssessment_Clicked"/>
+        <ToolbarItem x:Name="Home" Text="Home" Clicked="Home_Clicked" Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <CollectionView x:Name="ObjectiveAssessmentView"
+                          ItemsSource="{Binding ObjectiveAssessment}"
+                          EmptyView="No Assessments to Display"
+                          SelectionMode="Single"
+                          SelectionChanged="ObjectiveAssessmentView_SelectionChanged">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="2">
+                    </LinearItemsLayout>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Grid RowSpacing="1" ColumnSpacing="22" BackgroundColor="WhiteSmoke">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding objAssessmentId}" FontSize="Small" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center"/>
+                            <Label Grid.Row="1" FontSize="Small" VerticalTextAlignment="Center" FontAttributes ="Bold">Assessment Name</Label>
+                            <Label Text="{Binding objAssessmentName}" FontSize="Small" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center"/>
+                            <Label Grid.Row="2" FontSize="Small" VerticalTextAlignment="Center" FontAttributes="Bold">Assessment Type</Label>
+                            <Label Text="{Binding objAssessemntType}" Grid.Row="2" Grid.Column="1" FontSize="Small" VerticalTextAlignment="Center"/>
+                            <Label Grid.Row="3" FontSize="Small" VerticalTextAlignment="Center" FontAttributes="Bold">Assessment Start</Label>
+                            <Label Text="{Binding startObjAssessment}" Grid.Row="3" Grid.Column="1" FontSize="Small" VerticalTextAlignment="Center"/>
+                            <Label Grid.Row="4" FontSize="Small" VerticalTextAlignment="Center" FontAttributes="Bold">Assessment End</Label>
+                            <Label Text="{Binding endObjAssessment}" Grid.Row="5" Grid.Column="1" FontSize="Small" VerticalTextAlignment="Center"/>
+
+                        </Grid>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+            <CollectionView x:Name="PerformanceAssessmentView"
+                          ItemsSource="{Binding PerformanceAssessment}"
+                          EmptyView="No Assessments to Display"
+                          SelectionMode="Single"
+                          SelectionChanged="PerformanceAssessmentView_SelectionChanged">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="2">
+                    </LinearItemsLayout>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Grid RowSpacing="1" ColumnSpacing="22" BackgroundColor="WhiteSmoke">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding perfAssessmentId}" FontSize="Small" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center"/>
+                            <Label Grid.Row="1" FontSize="Small" VerticalTextAlignment="Center" FontAttributes ="Bold">Assessment Name</Label>
+                            <Label Text="{Binding perfAssessmentName}" FontSize="Small" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center"/>
+                            <Label Grid.Row="2" FontSize="Small" VerticalTextAlignment="Center" FontAttributes="Bold">Assessment Type</Label>
+                            <Label Text="{Binding perfAssessemntType}" Grid.Row="2" Grid.Column="1" FontSize="Small" VerticalTextAlignment="Center"/>
+                            <Label Grid.Row="3" FontSize="Small" VerticalTextAlignment="Center" FontAttributes="Bold">Assessment Start</Label>
+                            <Label Text="{Binding startPerfAssessment}" Grid.Row="3" Grid.Column="1" FontSize="Small" VerticalTextAlignment="Center"/>
+                            <Label Grid.Row="4" FontSize="Small" VerticalTextAlignment="Center" FontAttributes="Bold">Assessment End</Label>
+                            <Label Text="{Binding endPerfAssessment}" Grid.Row="5" Grid.Column="1" FontSize="Small" VerticalTextAlignment="Center"/>
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView> 
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

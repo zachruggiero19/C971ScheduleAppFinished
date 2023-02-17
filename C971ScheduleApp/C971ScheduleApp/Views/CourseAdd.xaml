@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971ScheduleApp.Views.CourseAdd">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="SaveCourse" Text="Save" Clicked="SaveCourse_Clicked"/>
+        <ToolbarItem x:Name="CancelCourse" Text="Cancel" Clicked="CancelCourse_Clicked"/>
+        <ToolbarItem x:Name="Home" Text="Home" Clicked="Home_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto" />
+
+            </Grid.ColumnDefinitions>
+            <Label Text="Course Name"
+                   Grid.Row="0"
+                   FontSize="Medium"
+                   VerticalTextAlignment="Center"/>
+            <Entry x:Name="CourseName" Placeholder="Enter Course Name" Grid.Column="1" VerticalTextAlignment="Center" Text="{Binding courseName}"/>
+            <Label Text="Course Status" Grid.Row="1" VerticalTextAlignment="Center"/>
+            <Picker x:Name="CourseStatus"
+                    Title="Course Status"
+                    TitleColor="Black"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    VerticalOptions="Center">
+
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Active</x:String>
+                        <x:String>Inactive</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Label Text="Course Start"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   FontSize="Medium"
+                   VerticalTextAlignment="Center"/>
+            <DatePicker Format="yyyy-MM-dd"
+                        Date="2023-01-01"
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        x:Name="StartDate"
+                        />
+            <Label Text="Course End"
+                   Grid.Row="2"
+                   Grid.Column="1"
+                   FontSize="Medium"
+                   VerticalTextAlignment="Center"/>
+
+            <DatePicker Format="yyyy-MM-dd"
+                        Date="2023-01-01"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        x:Name="EndDate"/>
+            <Label Grid.Row="4" FontSize="Medium" VerticalTextAlignment="Center">Notes</Label>
+            <Editor Grid.Row="4" Grid.Column="1" x:Name="NoteEditor" Placeholder="Enter Notes here"/>
+
+            <Label Grid.Row="5" FontSize="Medium">Notification</Label>
+            <Switch Grid.Row="5" Grid.Column="1" x:Name="Notification" HorizontalOptions="End" IsToggled="True"/>
+
+            <Label Grid.Row="6" FontSize="Medium" VerticalTextAlignment="Center">Instructor Name</Label>
+            <Entry x:Name="InstructorName" Placeholder="Enter Instructor Name" Grid.Row="6" Grid.Column="1" VerticalTextAlignment="Center" Text="{Binding instructorName}"/>
+
+            <Label Grid.Row="7" FontSize="Medium" VerticalTextAlignment="Center">Instructor Phone</Label>
+            <Entry x:Name="InstructorPhone" Placeholder="Enter Instructor Phone Number" Grid.Row="7" Grid.Column="1" VerticalTextAlignment="Center" Text="{Binding instructorPhone}"/>
+
+            <Label Grid.Row="8" FontSize="Medium" VerticalTextAlignment="Center">Instructor Email</Label>
+            <Entry x:Name="InstructorEmail" Placeholder="Enter Instructor Email" Grid.Row="8" Grid.Column="1" VerticalTextAlignment="Center" Text="{Binding instructorEmail}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971ScheduleApp.Views.CourseEdit">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="SaveCourse" Text="Save" Clicked="SaveCourse_Clicked"/>
+        <ToolbarItem x:Name="CancelCourse" Text="Cancel" Clicked="CancelCourse_Clicked"/>
+        <ToolbarItem x:Name="DeleteCourse" Text="Delete" Clicked="DeleteCourse_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="Center">
+        <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+
+                    <Label Text="Course ID"
+                   Grid.Row="0"
+                   FontSize="Small"
+                   VerticalTextAlignment="Center"/>
+                    <Entry  x:Name="CourseId" Placeholder="Enter Course Name" Grid.Column="1" VerticalTextAlignment="Center" IsReadOnly="True" Text="{Binding courseId}"/>
+                    <Label Text="Course Name"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   FontSize="Small"
+                   VerticalTextAlignment="Center"/>
+                    <Entry x:Name="CourseName" Placeholder="Enter Course Name" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center" Text="{Binding courseName}"/>
+                    <Label Text="Course Status" Grid.Row="2" VerticalTextAlignment="Center"/>
+                    <Picker x:Name="CourseStatus"
+                    Title="Course Status"
+                    TitleColor="Black"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    VerticalOptions="Center">
+
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Active</x:String>
+                                <x:String>Inactive</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <Label Text="Course Start"
+                   Grid.Row="3"
+                   Grid.Column="0"
+                   FontSize="Small"
+                   VerticalTextAlignment="Center"/>
+                    <DatePicker Format="yyyy-MM-dd"
+                        Date="2023-01-01"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        x:Name="StartDate"
+                        />
+                    <Label Text="Course End"
+                   Grid.Row="4"
+                   Grid.Column="0"
+                   FontSize="Small"
+                   VerticalTextAlignment="Center"/>
+
+                    <DatePicker Format="yyyy-MM-dd"
+                        Date="2023-01-01"
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        x:Name="EndDate"/>
+                    <Label Grid.Row="5" FontSize="Medium" VerticalTextAlignment="Center">Notes</Label>
+                    <Editor Grid.Row="5" Grid.Column="1" x:Name="NoteEditor" Placeholder="Enter Notes here"/>
+
+                    <Label Grid.Row="6" FontSize="Medium">Notification</Label>
+                    <Switch Grid.Row="6" Grid.Column="1" x:Name="Notification" HorizontalOptions="End" IsToggled="True"/>
+
+                    <Label Grid.Row="7" FontSize="Small" VerticalTextAlignment="Center">Instructor Name</Label>
+                    <Entry x:Name="InstructorName" Placeholder="Enter Instructor Name" Grid.Row="7" Grid.Column="1" VerticalTextAlignment="Center" Text="{Binding instructorName}"/>
+
+                    <Label Grid.Row="8" FontSize="Small" VerticalTextAlignment="Center">Instructor Phone</Label>
+                    <Entry x:Name="InstructorPhone" Placeholder="Enter Instructor Phone Number" Grid.Row="8" Grid.Column="1" VerticalTextAlignment="Center" Text="{Binding instructorPhone}"/>
+
+                    <Label Grid.Row="9" FontSize="Small" VerticalTextAlignment="Center">Instructor Email</Label>
+                    <Entry x:Name="InstructorEmail" Placeholder="Enter Instructor Email" Grid.Row="9" Grid.Column="1" VerticalTextAlignment="Center" Text="{Binding instructorEmail}"/>
+
+                    <!--Enter Share Buttons here-->
+                    <Label Grid.Row="10" FontSize="Small" VerticalTextAlignment="Center">Share</Label>
+                    <Button Grid.Row="10" Grid.Column="1" FontSize="Small" VerticalOptions="Center" Text="Share" Font="Small" x:Name="ShareButton" Clicked="ShareButton_Clicked"/>
+                    <Label Grid.Row="11" FontSize="Small" VerticalTextAlignment="Center">Share Uri</Label>
+                    <Button Grid.Row="11" Grid.Column="1" FontSize="Small" VerticalOptions="Center" Text="Share Uri" Font="Small" x:Name="ShareUri" Clicked="ShareUri_Clicked"/>
+                    <Label Grid.Row="12" FontSize="Small" VerticalTextAlignment="Center" Text="Assessment View" />
+                    <Button Grid.Row="12" Grid.Column="1" FontSize="Small" Text="Assessment View" VerticalOptions="Center" x:Name="AssessmentViewButton" Clicked="AssessmentViewButton_Clicked"/>
+
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+    
+    
+    
