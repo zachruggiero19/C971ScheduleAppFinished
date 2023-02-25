@@ -16,8 +16,11 @@ namespace C971ScheduleApp.Views
         private readonly int _selectedCourseId;
         protected override async void OnAppearing()
         {
-            ObjectiveAssessmentView.ItemsSource = await DataBaseService.GetObjAssessment(_selectedCourseId);
-            PerformanceAssessmentView.ItemsSource = await DataBaseService.GetPerfAssessment(_selectedCourseId);
+            AssessmentCollectionView.ItemsSource = await DataBaseService.GetAssessment(_selectedCourseId);
+
+            int assessmentCount = await DataBaseService.GetAssessmentCountAsync(_selectedCourseId);
+            CountLabel.Text = assessmentCount.ToString();
+        
         }
         public AssessmentView(int courseId)
         {
@@ -32,31 +35,20 @@ namespace C971ScheduleApp.Views
 
         async void ObjectiveAssessmentView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var assessment = (ObjectiveAssessment)e.CurrentSelection.FirstOrDefault();
+            var assessment = (Assessment)e.CurrentSelection.FirstOrDefault();
             if (e.CurrentSelection != null)
             {
                 await Navigation.PushAsync(new ObjectiveAssessmentEdit(assessment));
             }
         }
 
-        async void PerformanceAssessmentView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var assessment = (PerformanceAssessment)e.CurrentSelection.FirstOrDefault();
-            if (e.CurrentSelection != null)
-            {
-                await Navigation.PushAsync(new PerformanceAssessmentEdit(assessment));
-            }
-        }
-
-        async void AddPerfAssessment_Clicked(object sender, EventArgs e)
-        {
-            var courseId = Int32.Parse(_selectedCourseId.ToString());
-            await Navigation.PushAsync(new PerformanceAssessmentAdd(courseId));
-
-        }
-
         async void AddObjAssessment_Clicked(object sender, EventArgs e)
         {
+            if (Int32.Parse(CountLabel.Text) == 2)
+            {
+                await DisplayAlert("You can only have two Assessments", "Please Delete an assessment to continue", "OK");
+                return;
+            }
             var courseId = Int32.Parse(_selectedCourseId.ToString());
             await Navigation.PushAsync(new ObjectiveAssessmentAdd(courseId));
         }
@@ -66,5 +58,13 @@ namespace C971ScheduleApp.Views
             await Navigation.PopToRootAsync();
         }
 
+        async void AssessmentCollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.CurrentSelection != null)
+            {
+                Assessment assessment = (Assessment)e.CurrentSelection.FirstOrDefault();
+                await Navigation.PushAsync(new ObjectiveAssessmentEdit(assessment));
+            }
+        }
     }
 }

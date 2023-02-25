@@ -25,6 +25,7 @@ namespace C971ScheduleApp.Views
 
         async void ObjAddSave_Clicked(object sender, EventArgs e)
         {
+
             if (string.IsNullOrWhiteSpace(AssessmentName.Text))
             {
                 await DisplayAlert("Missing Assessment Name", "Please Enter a Name", "Ok");
@@ -34,8 +35,11 @@ namespace C971ScheduleApp.Views
             {
                 await DisplayAlert("Enter a Starting Date before End date", "Enter an appropriate Start or end Time", "OK");
             }
-            await DataBaseService.AddPerfAssessment(_selectedCourseId, AssessmentName.Text, AssessmentType.Text,
+
+
+            await DataBaseService.AddAssessment(_selectedCourseId, AssessmentName.Text, AssessmentType.SelectedItem.ToString(),
                                                     Notification.IsToggled, StartDate.Date, EndDate.Date);
+            await Navigation.PopAsync();
 
         }
 

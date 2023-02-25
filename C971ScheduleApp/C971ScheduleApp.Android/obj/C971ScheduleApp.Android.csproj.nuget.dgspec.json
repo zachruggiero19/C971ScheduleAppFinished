@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\zachr\\Desktop\\C971ScheduleApp\\C971ScheduleApp.Android\\C971ScheduleApp.Android.csproj": {}
+    "C:\\Users\\zachr\\Documents\\GitHub\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp.Android\\C971ScheduleApp.Android.csproj": {}
   },
   "projects": {
-    "C:\\Users\\zachr\\Desktop\\C971ScheduleApp\\C971ScheduleApp.Android\\C971ScheduleApp.Android.csproj": {
+    "C:\\Users\\zachr\\Documents\\GitHub\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp.Android\\C971ScheduleApp.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zachr\\Desktop\\C971ScheduleApp\\C971ScheduleApp.Android\\C971ScheduleApp.Android.csproj",
+        "projectUniqueName": "C:\\Users\\zachr\\Documents\\GitHub\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp.Android\\C971ScheduleApp.Android.csproj",
         "projectName": "C971ScheduleApp.Android",
-        "projectPath": "C:\\Users\\zachr\\Desktop\\C971ScheduleApp\\C971ScheduleApp.Android\\C971ScheduleApp.Android.csproj",
+        "projectPath": "C:\\Users\\zachr\\Documents\\GitHub\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp.Android\\C971ScheduleApp.Android.csproj",
         "packagesPath": "C:\\Users\\zachr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zachr\\Desktop\\C971ScheduleApp\\C971ScheduleApp.Android\\obj\\",
+        "outputPath": "C:\\Users\\zachr\\Documents\\GitHub\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -34,8 +34,8 @@
         "frameworks": {
           "monoandroid90": {
             "projectReferences": {
-              "C:\\Users\\zachr\\Desktop\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp.csproj": {
-                "projectPath": "C:\\Users\\zachr\\Desktop\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp.csproj"
+              "C:\\Users\\zachr\\Documents\\GitHub\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp.csproj": {
+                "projectPath": "C:\\Users\\zachr\\Documents\\GitHub\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp.csproj"
               }
             }
           }
@@ -64,14 +64,14 @@
         }
       }
     },
-    "C:\\Users\\zachr\\Desktop\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp.csproj": {
+    "C:\\Users\\zachr\\Documents\\GitHub\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zachr\\Desktop\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp.csproj",
+        "projectUniqueName": "C:\\Users\\zachr\\Documents\\GitHub\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp.csproj",
         "projectName": "C971ScheduleApp",
-        "projectPath": "C:\\Users\\zachr\\Desktop\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp.csproj",
+        "projectPath": "C:\\Users\\zachr\\Documents\\GitHub\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp.csproj",
         "packagesPath": "C:\\Users\\zachr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zachr\\Desktop\\C971ScheduleApp\\C971ScheduleApp\\obj\\",
+        "outputPath": "C:\\Users\\zachr\\Documents\\GitHub\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

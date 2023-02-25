@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="C971ScheduleApp.Views.ObjectiveAssessmentEdit">
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="SaveObjAssessment" Text="Save Objective" Clicked="SaveObjAssessment_Clicked"/>
-        <ToolbarItem x:Name="DeleteObjAssessment" Text="Delete Objective" Clicked="DeleteObjAssessment_Clicked"/>
-        <ToolbarItem x:Name="Cancel" Text="Cancel" Clicked="Cancel_Clicked"/>
+        <ToolbarItem x:Name="SaveObjAssessment" Text="Save Assessment" Clicked="SaveObjAssessment_Clicked"/>
+        <ToolbarItem x:Name="DeleteObjAssessment" Text="Delete Assessment" Clicked="DeleteObjAssessment_Clicked"/>
+        <ToolbarItem x:Name="Cancel" Text="Cancel" Clicked="Cancel_Clicked" Order="Secondary"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
 
@@ -40,7 +40,15 @@
                    VerticalTextAlignment="Center"/>
                 <Entry x:Name="AssessmentName" Placeholder="Enter Assessment Name" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center" Text="{Binding objAssessmentName}"/>
 
-                <Label x:Name="AssessmentType" Text="Objective Assessment" FontSize="Medium" VerticalTextAlignment="Center" Grid.Row="2"/>
+                <Label  Text= "Pick Assessment" FontSize="Medium" VerticalTextAlignment="Center" Grid.Row="2"/>
+                <Picker x:Name="AssessmentType" TitleColor="Black" Grid.Row="2" Grid.Column="1" VerticalOptions="Center">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Performance Assessment</x:String>
+                            <x:String>Objective Assessment</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
 
                 <Label Text="Course Start"
                    Grid.Row="3"

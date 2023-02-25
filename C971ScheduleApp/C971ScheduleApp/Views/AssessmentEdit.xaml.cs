@@ -14,13 +14,14 @@ namespace C971ScheduleApp.Views
     public partial class ObjectiveAssessmentEdit : ContentPage
     {
         private readonly int _selectedObjAssessmentId;
-        public ObjectiveAssessmentEdit(ObjectiveAssessment assessment)
+        public ObjectiveAssessmentEdit(Assessment assessment)
         {
             InitializeComponent();
-            _selectedObjAssessmentId = assessment.objAssessmentId;
+            _selectedObjAssessmentId = assessment.AssessmentId;
 
-            AssessmentId.Text = assessment.objAssessmentId.ToString();
+            AssessmentId.Text = assessment.AssessmentId.ToString();
             AssessmentName.Text = assessment.objAssessmentName;
+            AssessmentType.SelectedItem = assessment.objAssessemntType;
             StartDate.Date = assessment.startObjAssessment;
             EndDate.Date = assessment.endObjAssessment;
             Notification.IsToggled = assessment.objAssessmentNotification;
@@ -43,7 +44,7 @@ namespace C971ScheduleApp.Views
             {
                 await DisplayAlert("Enter a Starting Date before End date", "Enter an appropriate Start or end Time", "OK");
             }
-            await DataBaseService.UpdateObjAssessment(_selectedObjAssessmentId, AssessmentName.Text, AssessmentType.Text,
+            await DataBaseService.UpdateAssessment(_selectedObjAssessmentId, AssessmentName.Text, AssessmentType.SelectedItem.ToString(),
                                                     Notification.IsToggled, StartDate.Date, EndDate.Date);
             await Navigation.PopAsync();
         }
@@ -56,10 +57,11 @@ namespace C971ScheduleApp.Views
             if (answer == true)
             {
                 var id = int.Parse(AssessmentId.Text);
-                await DataBaseService.DeleteCourse(id);
+                await DataBaseService.DeleteAssessment(id);
 
-                await DisplayAlert("Objective Assessment Deleted", " Objective Assessment Deleted", "Ok");
+                await DisplayAlert("Assessment Deleted", "Assessment Deleted", "Ok");
             }
+            await Navigation.PopAsync();
         }
 
 

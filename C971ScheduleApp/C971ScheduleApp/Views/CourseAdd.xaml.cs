@@ -18,6 +18,8 @@ namespace C971ScheduleApp.Views
         {
             InitializeComponent();
             _selectedTermId = termId;
+          
+            
         }
         public CourseAdd()
         {
@@ -64,10 +66,16 @@ namespace C971ScheduleApp.Views
                 return;
             }
 
-            await DataBaseService.AddCourse(_selectedTermId, CourseName.Text, StartDate.Date, EndDate.Date, 
-                    CourseStatus.SelectedItem.ToString(),
-                     NoteEditor.Text, Notification.IsToggled, InstructorName.Text,
-                    Int32.Parse(InstructorPhone.Text), InstructorEmail.Text);
+            else
+            {
+                await DataBaseService.AddCourse(_selectedTermId, CourseName.Text, StartDate.Date, EndDate.Date,
+                   CourseStatus.SelectedItem.ToString(),
+                    NoteEditor.Text, Notification.IsToggled, InstructorName.Text,
+                   Int32.Parse(InstructorPhone.Text), InstructorEmail.Text);
+            }
+                        
+
+           
 
             await Navigation.PopAsync();
 

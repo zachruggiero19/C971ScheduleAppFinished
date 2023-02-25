@@ -5,10 +5,10 @@ using SQLite;
 
 namespace C971ScheduleApp.TermsCourses
 {
-    public class ObjectiveAssessment
+    public class Assessment
     {
         [PrimaryKey, AutoIncrement]
-        public int objAssessmentId { get; set; }
+        public int AssessmentId { get; set; }
         public int courseId { get; set; }
         public string objAssessmentName { get; set; }
         public string objAssessemntType { get; set; }

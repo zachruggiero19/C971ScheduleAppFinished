@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7LZb9jNbZwAKjxRD6xM0SlfR7chp8SXV0b0AeRHx5PwABuLkbjjJAfl8Rc1lIXVlG3AIcAB/f2t+WvKwv4h4fw==",
+  "dgSpecHash": "qabd0QmlqjukHRzovydxYqLDydeupyNrdQ8cqWyckHcVHRGUfQ/DyJ1xcFKA84JctinhPp3/xm0jZIbUBshk2Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\zachr\\Desktop\\C971ScheduleApp\\C971ScheduleApp.Android\\C971ScheduleApp.Android.csproj",
+  "projectFilePath": "C:\\Users\\zachr\\Documents\\GitHub\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp.Android\\C971ScheduleApp.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zachr\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
     "C:\\Users\\zachr\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",

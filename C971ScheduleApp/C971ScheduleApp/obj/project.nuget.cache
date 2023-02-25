@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RUNEpyKxReeR3ML5zQanVUV57l060JaBKSQuei4NZcBeS/WsFXAQslIl1jHeVTsmqLUSrl6gyAEO57vWO9hPdQ==",
+  "dgSpecHash": "wHuLQjqzuIa82/c7qDE8cx/QP0krsxAXP0vKKcnrSwPHlCQrXzR4KoOpqIYSyQYrXv11ZQH3l0VRRbU/NjIIZg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\zachr\\Desktop\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp.csproj",
+  "projectFilePath": "C:\\Users\\zachr\\Documents\\GitHub\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp\\C971ScheduleApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zachr\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\zachr\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",

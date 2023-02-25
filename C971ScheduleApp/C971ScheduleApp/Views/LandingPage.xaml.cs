@@ -21,8 +21,7 @@ namespace C971ScheduleApp.Views
         {
             base.OnAppearing();
             var courseList = await DataBaseService.GetCourse();
-            var objAssessmentList = await DataBaseService.GetObjAssessment();
-            var perfAssessmentList = await DataBaseService.GetPerfAssessment();
+            var AssessmentList = await DataBaseService.GetAssessment();
             var notifyRandom = new Random();
             var notifyId = notifyRandom.Next(1000);
 
@@ -48,7 +47,7 @@ namespace C971ScheduleApp.Views
                 }
             }
 
-            foreach (ObjectiveAssessment assessment in objAssessmentList)
+            foreach (Assessment assessment in AssessmentList)
             {
                 if (assessment.objAssessmentNotification == true)
                 {
@@ -59,35 +58,13 @@ namespace C971ScheduleApp.Views
                 }
             }
 
-            foreach (ObjectiveAssessment assessment in objAssessmentList)
+            foreach (Assessment assessment in AssessmentList)
             {
                 if (assessment.objAssessmentNotification == true)
                 {
                     if (assessment.endObjAssessment == DateTime.Today)
                     {
                         CrossLocalNotifications.Current.Show("Notice", $"{assessment.objAssessmentName} ends today!", notifyId);
-                    }
-                }
-            }
-
-            foreach (PerformanceAssessment assessment in perfAssessmentList)
-            {
-                if (assessment.perfAssessmentNotification == true)
-                {
-                    if (assessment.startPerfAssessment == DateTime.Today)
-                    {
-                        CrossLocalNotifications.Current.Show("Notice", $"{assessment.perfAssessmentName} begins today!", notifyId);
-                    }
-                }
-            }
-
-            foreach (PerformanceAssessment assessment in perfAssessmentList)
-            {
-                if (assessment.perfAssessmentNotification == true)
-                {
-                    if (assessment.endPerfAssessment == DateTime.Today)
-                    {
-                        CrossLocalNotifications.Current.Show("Notice", $"{assessment.perfAssessmentName} ends today!", notifyId);
                     }
                 }
             }
@@ -111,11 +88,11 @@ namespace C971ScheduleApp.Views
         {
             await Navigation.PushAsync(new TermList());
         }
-       
-        //Leads to Settings 
-        async void Settings_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new AppSettings());
-        }
+
+        ////Leads to Settings/Admin Settings 
+        //async void Settings_Clicked(object sender, EventArgs e)
+        //{
+        //    await Navigation.PushAsync(new AppSettings());
+        //}
     }
 }

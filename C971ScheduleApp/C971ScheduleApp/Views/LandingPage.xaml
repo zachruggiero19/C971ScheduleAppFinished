@@ -8,7 +8,7 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="AddTerm" Text="Add Term" Clicked="AddTerm_Clicked"/>
         <ToolbarItem x:Name="ViewTerm" Text="View Term" Clicked="ViewTerm_Clicked"/>
-        <ToolbarItem x:Name="Settings" Text="Settings" Order="Secondary" Clicked="Settings_Clicked"/>
+     <!-- <ToolbarItem x:Name="Settings" Text="Settings" Order="Secondary" Clicked="Settings_Clicked"/>  This is an admin mode for resetting data back to normal-->
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>

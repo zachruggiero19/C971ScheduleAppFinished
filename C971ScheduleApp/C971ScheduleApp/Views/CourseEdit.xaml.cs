@@ -68,7 +68,7 @@ namespace C971ScheduleApp.Views
                 return;
             }
 
-            await DataBaseService.AddCourse(Int32.Parse(CourseId.Text), CourseName.Text, StartDate.Date, EndDate.Date,
+            await DataBaseService.UpdateCourse(Int32.Parse(CourseId.Text), CourseName.Text, StartDate.Date, EndDate.Date,
                     CourseStatus.SelectedItem.ToString(),
                      NoteEditor.Text, Notification.IsToggled, InstructorName.Text,
                     Int32.Parse(InstructorPhone.Text), InstructorEmail.Text);
@@ -114,37 +114,6 @@ namespace C971ScheduleApp.Views
             });
         }
 
-
-
-        async void AddObjAssessment_Clicked(object sender, EventArgs e)
-        {
-            var courseId = Int32.Parse(CourseId.Text);
-            await Navigation.PushAsync(new ObjectiveAssessmentAdd(courseId));
-        }
-
-        async void PerformanceAssessmentView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var assessment = (PerformanceAssessment)e.CurrentSelection.FirstOrDefault();
-            if (e.CurrentSelection != null)
-            {
-                await Navigation.PushAsync(new PerformanceAssessmentEdit(assessment));
-            }
-        }
-
-        async void AddPerfAssessment_Clicked(object sender, EventArgs e)
-        {
-            var courseId = Int32.Parse(CourseId.Text);
-            await Navigation.PushAsync(new PerformanceAssessmentAdd(courseId));
-        }
-
-        async void ObjectiveAssessmentView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var assessment = (ObjectiveAssessment)e.CurrentSelection.FirstOrDefault();
-            if (e.CurrentSelection != null)
-            {
-                await Navigation.PushAsync(new ObjectiveAssessmentEdit(assessment));
-            }
-        }
 
         async void AssessmentViewButton_Clicked(object sender, EventArgs e)
         {

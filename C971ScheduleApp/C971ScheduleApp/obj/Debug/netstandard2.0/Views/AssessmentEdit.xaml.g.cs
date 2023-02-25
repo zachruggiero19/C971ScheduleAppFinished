@@ -8,19 +8,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("C971ScheduleApp.Views.PerformanceAssessmentEdit.xaml", "Views/PerformanceAssessmentEdit.xaml", typeof(global::C971ScheduleApp.Views.PerformanceAssessmentEdit))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("C971ScheduleApp.Views.AssessmentEdit.xaml", "Views/AssessmentEdit.xaml", typeof(global::C971ScheduleApp.Views.ObjectiveAssessmentEdit))]
 
 namespace C971ScheduleApp.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\PerformanceAssessmentEdit.xaml")]
-    public partial class PerformanceAssessmentEdit : global::Xamarin.Forms.ContentPage {
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\AssessmentEdit.xaml")]
+    public partial class ObjectiveAssessmentEdit : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.ToolbarItem SavePerformanceAssessment;
+        private global::Xamarin.Forms.ToolbarItem SaveObjAssessment;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.ToolbarItem DeletePerfAssessment;
+        private global::Xamarin.Forms.ToolbarItem DeleteObjAssessment;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.ToolbarItem Cancel;
@@ -32,7 +32,7 @@ namespace C971ScheduleApp.Views {
         private global::Xamarin.Forms.Entry AssessmentName;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.Label AssessmentType;
+        private global::Xamarin.Forms.Picker AssessmentType;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.DatePicker StartDate;
@@ -45,13 +45,13 @@ namespace C971ScheduleApp.Views {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(PerformanceAssessmentEdit));
-            SavePerformanceAssessment = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ToolbarItem>(this, "SavePerformanceAssessment");
-            DeletePerfAssessment = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ToolbarItem>(this, "DeletePerfAssessment");
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(ObjectiveAssessmentEdit));
+            SaveObjAssessment = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ToolbarItem>(this, "SaveObjAssessment");
+            DeleteObjAssessment = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ToolbarItem>(this, "DeleteObjAssessment");
             Cancel = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ToolbarItem>(this, "Cancel");
             AssessmentId = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Entry>(this, "AssessmentId");
             AssessmentName = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Entry>(this, "AssessmentName");
-            AssessmentType = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "AssessmentType");
+            AssessmentType = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Picker>(this, "AssessmentType");
             StartDate = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.DatePicker>(this, "StartDate");
             EndDate = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.DatePicker>(this, "EndDate");
             Notification = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Switch>(this, "Notification");

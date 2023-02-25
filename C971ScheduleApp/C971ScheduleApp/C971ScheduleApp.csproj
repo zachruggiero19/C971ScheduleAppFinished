@@ -18,8 +18,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\ObjectiveAssessmentEdit.xaml.cs">
-      <DependentUpon>ObjectiveAssessmentEdit.xaml</DependentUpon>
+    <Compile Update="Views\AssessmentAdd.xaml.cs">
+      <DependentUpon>AssessmentAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\AssessmentEdit.xaml.cs">
+      <DependentUpon>AssessmentEdit.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\LandingPage.xaml.cs">
       <DependentUpon>LandingPage.xaml</DependentUpon>
@@ -42,10 +45,10 @@
     <EmbeddedResource Update="Views\AssessmentView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ObjectiveAssessmentAdd.xaml">
+    <EmbeddedResource Update="Views\AssessmentAdd.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ObjectiveAssessmentEdit.xaml">
+    <EmbeddedResource Update="Views\AssessmentEdit.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\LandingPage.xaml">
@@ -55,12 +58,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\CourseEdit.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\PerformanceAssessmentAdd.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\PerformanceAssessmentEdit.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\TermAdd.xaml">

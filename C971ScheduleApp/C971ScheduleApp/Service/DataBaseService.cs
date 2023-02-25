@@ -26,8 +26,7 @@ namespace C971ScheduleApp.Service
 
             await _db.CreateTableAsync<Course>();
             await _db.CreateTableAsync<Term>();
-            await _db.CreateTableAsync<ObjectiveAssessment>();
-            await _db.CreateTableAsync<PerformanceAssessment>();
+            await _db.CreateTableAsync<Assessment>();
         }
         #endregion
         #region Term
@@ -154,11 +153,11 @@ namespace C971ScheduleApp.Service
         #endregion Classes
 
         #region Assessments
-        public static async Task ObjAddAssessment(int courseId, string assessmentName, string assessmentType, bool assessmentNotification, DateTime startAssessment, DateTime endAssessment)
+        public static async Task AddAssessment(int courseId, string assessmentName, string assessmentType, bool assessmentNotification, DateTime startAssessment, DateTime endAssessment)
         {
             await Init();
 
-            var assessment = new ObjectiveAssessment()
+            var assessment = new Assessment()
             {
                 courseId =  courseId,
                 objAssessmentName = assessmentName,
@@ -169,78 +168,42 @@ namespace C971ScheduleApp.Service
             };
 
             await _db.InsertAsync(assessment);
-            var id = assessment.objAssessmentId;
+            var id = assessment.AssessmentId;
         }
 
-        public static async Task AddPerfAssessment(int courseId, string assessmentName, string assessmentType, bool assessmentNotification, DateTime startAssessment, DateTime endAssessment)
+
+
+        public static async Task DeleteAssessment(int assessmentId)
         {
             await Init();
 
-            var assessment = new PerformanceAssessment()
-            {
-                courseId = courseId,
-                perfAssessmentName = assessmentName,
-                perfAssessemntType = assessmentType,
-                perfAssessmentNotification = assessmentNotification,
-                startPerfAssessment = startAssessment,
-                endPerfAssessment = endAssessment
-            };
-
-            await _db.InsertAsync(assessment);
-            var id = assessment.perfAssessmentId;
+            await _db.DeleteAsync<Assessment>(assessmentId);
         }
+      
 
-        public static async Task DeleteObjAssessment(int assessmentId)
+        public static async Task<IEnumerable<Assessment>> GetAssessment(int courseId)
         {
             await Init();
-
-            await _db.DeleteAsync<ObjectiveAssessment>(assessmentId);
-        }
-        public static async Task DeletePerfAssessment(int perfAssessmentId)
-        {
-            await Init();
-
-            await _db.DeleteAsync<PerformanceAssessment>(perfAssessmentId);
-        }
-
-        public static async Task<IEnumerable<ObjectiveAssessment>> GetObjAssessment(int courseId)
-        {
-            await Init();
-            var assessments = await _db.Table<ObjectiveAssessment>().Where(i => i.courseId == courseId).ToListAsync();
+            var assessments = await _db.Table<Assessment>().Where(i => i.courseId == courseId).ToListAsync();
             return assessments;
         }
 
-        public static async Task<IEnumerable<ObjectiveAssessment>> GetObjAssessment()
+        public static async Task<IEnumerable<Assessment>> GetAssessment()
         {
             await Init();
 
-            var objAssessments = await _db.Table<ObjectiveAssessment>().ToListAsync();
+            var objAssessments = await _db.Table<Assessment>().ToListAsync();
             return objAssessments;
         }
 
-        public static async Task<IEnumerable<PerformanceAssessment>> GetPerfAssessment(int courseId)
-        {
-            await Init();
-            var assessments2 = await _db.Table<PerformanceAssessment>().Where(i => i.courseId == courseId).ToListAsync();
-            return assessments2;
-        }
 
 
-        public static async Task<IEnumerable<PerformanceAssessment>> GetPerfAssessment()
+        public static async Task UpdateAssessment(int id, string assessmentName, string assessmentType, bool assessmentNotification, DateTime startAssessment, DateTime endAssessment)
         {
             await Init();
 
-            var perfAssessment = await _db.Table<PerformanceAssessment>().ToListAsync();
-            return perfAssessment;
-        }
-
-
-        public static async Task UpdateObjAssessment(int id, string assessmentName, string assessmentType, bool assessmentNotification, DateTime startAssessment, DateTime endAssessment)
-        {
-            await Init();
-
-            var assessmentQuery = await _db.Table<ObjectiveAssessment>()
-                .Where(i => i.objAssessmentId == id)
+            var assessmentQuery = await _db.Table<Assessment>()
+                .Where(i => i.AssessmentId == id)
                 .FirstOrDefaultAsync();
 
                 assessmentQuery.objAssessmentName = assessmentName;
@@ -250,20 +213,6 @@ namespace C971ScheduleApp.Service
                 assessmentQuery.endObjAssessment = endAssessment;
         }
 
-        public static async Task UpdatePerfAssessment(int id, string assessmentName, string assessmentType, bool assessmentNotification, DateTime startAssessment, DateTime endAssessment)
-        {
-            await Init();
-
-            var assessmentQuery = await _db.Table<PerformanceAssessment>()
-                .Where(i => i.perfAssessmentId == id)
-                .FirstOrDefaultAsync();
-
-            assessmentQuery.perfAssessmentName = assessmentName;
-            assessmentQuery.perfAssessemntType = assessmentType;
-            assessmentQuery.perfAssessmentNotification = assessmentNotification;
-            assessmentQuery.startPerfAssessment = startAssessment;
-            assessmentQuery.endPerfAssessment = endAssessment;
-        }
 
         #endregion Assessments
         #region Load Sample Data 
@@ -292,7 +241,7 @@ namespace C971ScheduleApp.Service
                 termId = term.Id
             };
             await _db.InsertAsync(course);
-            ObjectiveAssessment assessment = new ObjectiveAssessment
+            Assessment assessment = new Assessment
             {
                 objAssessmentName = "Assessment 1",
                 objAssessemntType = "Objective Assessment",
@@ -302,13 +251,13 @@ namespace C971ScheduleApp.Service
                 courseId = course.cId
             };
             await _db.InsertAsync(assessment);
-            PerformanceAssessment assessment2 = new PerformanceAssessment
+            Assessment assessment2 = new Assessment
             {
-                perfAssessmentName = "Assessment 2",
-                perfAssessemntType = "Performance Assessment",
-                perfAssessmentNotification = true,
-                startPerfAssessment = DateTime.Today.AddMonths(1),
-                endPerfAssessment = DateTime.Today.AddMonths(1).AddDays(3),
+                objAssessmentName = "Assessment 2",
+                objAssessemntType = "Performance Assessment",
+                objAssessmentNotification = true,
+                startObjAssessment = DateTime.Today.AddMonths(1),
+                endObjAssessment = DateTime.Today.AddMonths(1).AddDays(3),
                 courseId = course.cId
             };
             await _db.InsertAsync(assessment2);
@@ -323,8 +272,7 @@ namespace C971ScheduleApp.Service
 
             await _db.DropTableAsync<Term>();
             await _db.DropTableAsync<Course>();
-             await _db.DropTableAsync<ObjectiveAssessment>();
-            await _db.DropTableAsync<PerformanceAssessment>();
+             await _db.DropTableAsync<Assessment>();
             _db = null;
             dbConnection = null;
 
@@ -348,11 +296,11 @@ namespace C971ScheduleApp.Service
                                     "Zachariah M Ruggiero", 5789391, "zruggie@wgu.edu", lastRowId);
             lastRowId = await _db.ExecuteScalarAsync<int>("SELECT last_insert_rowid()");
 
-            await _db.ExecuteAsync(@"INSERT INTO ObjectiveAssessment(ASSEMENTNAME, ASSESSMENTTYPE, STARTASSESSMENT, ENDASSESSMENT, COURSEID)
+            await _db.ExecuteAsync(@"INSERT INTO Assessment(ASSEMENTNAME, ASSESSMENTTYPE, STARTASSESSMENT, ENDASSESSMENT, COURSEID)
                                     VALUES(?,?,?,?)", "Assessment 1", "Objective Assessment", 
                                     DateTime.Today.AddDays(25), DateTime.Today.AddDays(26), lastRowId );
-            await _db.ExecuteAsync(@"INSERT INTO PerformanceAssessment(ASSEMENTNAME, ASSESSMENTTYPE, STARTASSESSMENT, ENDASSESSMENT)
-                                    VALUES(?,?,?,?)", "Assessment 1", "Performance Assessment",
+            await _db.ExecuteAsync(@"INSERT INTO Assessment(ASSEMENTNAME, ASSESSMENTTYPE, STARTASSESSMENT, ENDASSESSMENT)
+                                    VALUES(?,?,?,?)", "Assessment 2", "Performance Assessment",
                                     DateTime.Today.AddDays(27), DateTime.Today.AddDays(28), lastRowId);
 
         }
@@ -364,6 +312,13 @@ namespace C971ScheduleApp.Service
             int courseCount = await _db.ExecuteScalarAsync<int>($"SELECT COUNT(*) FROM Course WHERE termId = ?", selectedTermId);
 
             return courseCount;
+        }
+
+        public static async Task<int> GetAssessmentCountAsync(int selectedCourseId)
+        {
+            int assessmentCount = await _db.ExecuteScalarAsync<int>($"SELECT COUNT(*) FROM Assessment WHERE courseId = ?", selectedCourseId);
+
+            return assessmentCount;
         }
         #endregion
 
@@ -393,11 +348,11 @@ namespace C971ScheduleApp.Service
         public static async void LoopAssessmentTable()
         {
             await Init();
-            var allAssessmentRecords = dbConnection.Query<ObjectiveAssessment>("SELECT * FROM Term");
+            var allAssessmentRecords = dbConnection.Query<Assessment>("SELECT * FROM Assessment");
 
             foreach (var assessmentRecord in allAssessmentRecords)
             {
-                Console.WriteLine("Assessment Name: " + assessmentRecord.objAssessmentName);
+                Console.WriteLine("Assessment Name: " + assessmentRecord.AssessmentId);
             }
         }
 
@@ -415,19 +370,13 @@ namespace C971ScheduleApp.Service
             return records2;
         }
 
-        public static async Task<List<ObjectiveAssessment>> GetNotifyObjAssessmentAsync()
+        public static async Task<List<Assessment>> GetNotifyObjAssessmentAsync()
         {
             await Init();
-            var records3 = dbConnection.Query<ObjectiveAssessment>("SELECT * FROM ObjectiveAssessment");
+            var records3 = dbConnection.Query<Assessment>("SELECT * FROM ObjectiveAssessment");
             return records3;
         }
 
-        public static async Task<List<PerformanceAssessment>> GetNotifyPerfAssessmentAsync()
-        {
-            await Init();
-            var records4 = dbConnection.Query<PerformanceAssessment>("SELECT * FROM PerformanceAssessment");
-            return records4;
-        }
 
         public static async Task<IEnumerable<Term>> GetNotifyTerm()
         {

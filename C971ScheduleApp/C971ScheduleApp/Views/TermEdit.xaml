@@ -69,7 +69,7 @@
             <Label Text="_________________________________"/>
 
             <CollectionView x:Name="CourseCollectionView"
-                          ItemsSource="{Binding Course}"
+                          ItemsSource="{Binding Course}"                         
                           EmptyView="No Courses to Display"
                           SelectionMode="Single"
                           SelectionChanged="CourseCollectionView_SelectionChanged">

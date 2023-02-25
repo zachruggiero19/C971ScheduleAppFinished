@@ -73,6 +73,11 @@ namespace C971ScheduleApp.Views
 
         async void AddCourse_Clicked(object sender, EventArgs e)
         {
+            if (Int32.Parse(CountLabel.Text) == 6)
+            {
+                await DisplayAlert("You can only have six Courses", "Please Delete a course to continue", "OK");
+                return;
+            }
             var termId = Int32.Parse(TermId.Text);
             await Navigation.PushAsync(new CourseAdd(termId));
         }
