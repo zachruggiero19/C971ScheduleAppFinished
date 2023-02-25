@@ -93,6 +93,8 @@
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
 
                                 <Grid.ColumnDefinitions>
@@ -104,12 +106,18 @@
                                 <Label Text="{Binding courseName}" FontSize="Medium" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center"/>
                                 <Label Grid.Row="2" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes ="Bold">Course Status</Label>
                                 <Label Text="{Binding courseStatus}" FontSize="Medium" Grid.Row="2" Grid.Column="1" VerticalTextAlignment="Center"/>
-                                <Label Grid.Row="3" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Instructor Name</Label>
-                                <Label Text="{Binding instructorName}" Grid.Row="3" Grid.Column="1" FontSize="Medium" VerticalTextAlignment="Center"/>
-                                <Label Grid.Row="4" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Instructor Phone</Label>
-                                <Label Text="{Binding instructorPhone}" Grid.Row="4" Grid.Column="1" FontSize="Medium" VerticalTextAlignment="Center"/>
-                                <Label Grid.Row="5" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Instructor Email</Label>
-                                <Label Text="{Binding instructorEmail}" Grid.Row="5" Grid.Column="1" FontSize="Medium" VerticalTextAlignment="Center"/>
+                                <Label FontSize="Medium" VerticalTextAlignment="Center" Grid.Row="3" FontAttributes="Bold">Course Start</Label>
+                                <Label Text="{Binding courseStart}" FontSize="Medium" Grid.Row="3" Grid.Column="1" VerticalTextAlignment="Center"/>
+                                <Label FontSize="Medium" VerticalTextAlignment="Center" Grid.Row="4" FontAttributes="Bold">Course End</Label>
+                                <Label Text="{Binding courseEnd}" FontSize="Medium" Grid.Row="4" Grid.Column="1" VerticalTextAlignment="Center"/>
+                                <Label Grid.Row="5" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Instructor Name</Label>
+                                <Label Text="{Binding instructorName}" Grid.Row="5" Grid.Column="1" FontSize="Medium" VerticalTextAlignment="Center"/>
+                                <Label Grid.Row="6" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Instructor Phone</Label>
+                                <Label Text="{Binding instructorPhone}" Grid.Row="6" Grid.Column="1" FontSize="Medium" VerticalTextAlignment="Center"/>
+                                <Label Grid.Row="7" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Instructor Email</Label>
+                                <Label Text="{Binding instructorEmail}" Grid.Row="7" Grid.Column="1" FontSize="Medium" VerticalTextAlignment="Center"/>
+                                <Label FontSize="Medium" VerticalTextAlignment="Center" Grid.Row="8" FontAttributes="Bold">Notes</Label>
+                                <Label Text="{Binding courseNotes}" FontSize="Small" Grid.Row="8" Grid.Column="1" VerticalTextAlignment="Center"/>
                             </Grid>
                         </StackLayout>
                     </DataTemplate>
