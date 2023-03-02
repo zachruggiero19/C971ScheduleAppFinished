@@ -10,10 +10,10 @@ namespace C971ScheduleApp.TermsCourses
         [PrimaryKey, AutoIncrement]
         public int AssessmentId { get; set; }
         public int courseId { get; set; }
-        public string objAssessmentName { get; set; }
-        public string objAssessemntType { get; set; }
-        public bool objAssessmentNotification { get; set; }
-        public DateTime startObjAssessment { get; set; }
-        public DateTime endObjAssessment { get; set; }
+        public string AssessmentName { get; set; }
+        public string AssessmentType { get; set; }
+        public bool AssessmentNotification { get; set; }
+        public DateTime startAssessment { get; set; }
+        public DateTime endAssessment { get; set; }
     }
 }

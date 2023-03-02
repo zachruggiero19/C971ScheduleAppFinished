@@ -33,15 +33,6 @@ namespace C971ScheduleApp.Views
             InitializeComponent();
         }
 
-        async void ObjectiveAssessmentView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var assessment = (Assessment)e.CurrentSelection.FirstOrDefault();
-            if (e.CurrentSelection != null)
-            {
-                await Navigation.PushAsync(new ObjectiveAssessmentEdit(assessment));
-            }
-        }
-
         async void AddObjAssessment_Clicked(object sender, EventArgs e)
         {
             if (Int32.Parse(CountLabel.Text) == 2)

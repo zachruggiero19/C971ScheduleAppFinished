@@ -49,22 +49,22 @@ namespace C971ScheduleApp.Views
 
             foreach (Assessment assessment in AssessmentList)
             {
-                if (assessment.objAssessmentNotification == true)
+                if (assessment.AssessmentNotification == true)
                 {
-                    if (assessment.startObjAssessment == DateTime.Today)
+                    if (assessment.startAssessment == DateTime.Today)
                     {
-                        CrossLocalNotifications.Current.Show("Notice", $"{assessment.objAssessmentName} begins today!", notifyId);
+                        CrossLocalNotifications.Current.Show("Notice", $"{assessment.AssessmentName} begins today!", notifyId);
                     }
                 }
             }
 
             foreach (Assessment assessment in AssessmentList)
             {
-                if (assessment.objAssessmentNotification == true)
+                if (assessment.AssessmentNotification == true)
                 {
-                    if (assessment.endObjAssessment == DateTime.Today)
+                    if (assessment.endAssessment == DateTime.Today)
                     {
-                        CrossLocalNotifications.Current.Show("Notice", $"{assessment.objAssessmentName} ends today!", notifyId);
+                        CrossLocalNotifications.Current.Show("Notice", $"{assessment.AssessmentName} ends today!", notifyId);
                     }
                 }
             }
@@ -89,7 +89,7 @@ namespace C971ScheduleApp.Views
             await Navigation.PushAsync(new TermList());
         }
 
-        ////Leads to Settings/Admin Settings 
+        //Leads to Settings/Admin Settings 
         //async void Settings_Clicked(object sender, EventArgs e)
         //{
         //    await Navigation.PushAsync(new AppSettings());

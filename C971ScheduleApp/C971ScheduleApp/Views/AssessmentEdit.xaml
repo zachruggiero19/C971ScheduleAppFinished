@@ -32,23 +32,18 @@
                    Grid.Row="0"
                    FontSize="Medium"
                    VerticalTextAlignment="Center"/>
-                <Entry  x:Name="AssessmentId" Placeholder="Enter Assessment Name" Grid.Column="1" VerticalTextAlignment="Center" IsReadOnly="True"  Text="{Binding objAssessmententId}"/>
+                <Label  x:Name="AssessmentId"  Grid.Column="1" VerticalTextAlignment="Center"   Text="{Binding AssessmententId}"/>
                 <Label Text="Assessment Name"
                    Grid.Row="1"
                    Grid.Column="0"
                    FontSize="Medium"
                    VerticalTextAlignment="Center"/>
-                <Entry x:Name="AssessmentName" Placeholder="Enter Assessment Name" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center" Text="{Binding objAssessmentName}"/>
+                <Entry x:Name="AssessmentName" Placeholder="Enter Assessment Name" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center" Text="{Binding AssessmentName}"/>
 
-                <Label  Text= "Pick Assessment" FontSize="Medium" VerticalTextAlignment="Center" Grid.Row="2"/>
-                <Picker x:Name="AssessmentType" TitleColor="Black" Grid.Row="2" Grid.Column="1" VerticalOptions="Center">
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>Performance Assessment</x:String>
-                            <x:String>Objective Assessment</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
-                </Picker>
+                <Label  Text= "Assessment Type" FontSize="Medium" VerticalTextAlignment="Center" Grid.Row="2"/>
+                <Entry x:Name="AssessmentType" Text="{Binding AssessmentType}"  Grid.Row="2" Grid.Column="1" IsReadOnly="True" VerticalOptions="Center" >
+
+                </Entry>
 
                 <Label Text="Course Start"
                    Grid.Row="3"

@@ -31,13 +31,13 @@
                    Grid.Row="0"
                    FontSize="Medium"
                    VerticalTextAlignment="Center"/>
-                    <Entry  x:Name="AssessmentId" Placeholder="Enter Assessment Name" Grid.Column="1" VerticalTextAlignment="Center" IsReadOnly="True"  Text="{Binding objAssessmententId}"/>
+                    <Entry  x:Name="AssessmentId" Placeholder="Enter Assessment Name" Grid.Column="1" VerticalTextAlignment="Center" IsReadOnly="True"  Text="{Binding AssessmententId}"/>
                     <Label Text="Assessment Name"
                    Grid.Row="1"
                    Grid.Column="0"
                    FontSize="Medium"
                    VerticalTextAlignment="Center"/>
-                    <Entry x:Name="AssessmentName" Placeholder="Enter Assessment Name" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center" Text="{Binding objAssessmentName}"/>
+                    <Entry x:Name="AssessmentName" Placeholder="Enter Assessment Name" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center" Text="{Binding AssessmentName}"/>
 
                 <Label  Text= "Pick Assessment" FontSize="Medium" VerticalTextAlignment="Center" Grid.Row="2"/>
                 <Picker x:Name="AssessmentType" TitleColor="Black" Grid.Row="2" Grid.Column="1" VerticalOptions="Center">

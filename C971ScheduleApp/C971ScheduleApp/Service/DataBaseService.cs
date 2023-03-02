@@ -13,7 +13,7 @@ namespace C971ScheduleApp.Service
         private static SQLiteAsyncConnection _db;
         private static SQLiteConnection dbConnection;
 
-        static async Task Init()
+        public static async Task Init()
         {
             if (_db != null)
             {
@@ -160,11 +160,11 @@ namespace C971ScheduleApp.Service
             var assessment = new Assessment()
             {
                 courseId =  courseId,
-                objAssessmentName = assessmentName,
-                objAssessemntType = assessmentType,
-                objAssessmentNotification = assessmentNotification,
-                startObjAssessment = startAssessment,
-                endObjAssessment = endAssessment
+                AssessmentName = assessmentName,
+                AssessmentType = assessmentType,
+                AssessmentNotification = assessmentNotification,
+                startAssessment = startAssessment,
+                endAssessment = endAssessment
             };
 
             await _db.InsertAsync(assessment);
@@ -198,6 +198,7 @@ namespace C971ScheduleApp.Service
 
 
 
+
         public static async Task UpdateAssessment(int id, string assessmentName, string assessmentType, bool assessmentNotification, DateTime startAssessment, DateTime endAssessment)
         {
             await Init();
@@ -206,11 +207,11 @@ namespace C971ScheduleApp.Service
                 .Where(i => i.AssessmentId == id)
                 .FirstOrDefaultAsync();
 
-                assessmentQuery.objAssessmentName = assessmentName;
-                assessmentQuery.objAssessemntType = assessmentType;
-                assessmentQuery.objAssessmentNotification = assessmentNotification;
-                assessmentQuery.startObjAssessment = startAssessment;
-                assessmentQuery.endObjAssessment = endAssessment;
+                assessmentQuery.AssessmentName = assessmentName;
+                assessmentQuery.AssessmentType = assessmentType;
+                assessmentQuery.AssessmentNotification = assessmentNotification;
+                assessmentQuery.startAssessment = startAssessment;
+                assessmentQuery.endAssessment = endAssessment;
         }
 
 
@@ -243,21 +244,21 @@ namespace C971ScheduleApp.Service
             await _db.InsertAsync(course);
             Assessment assessment = new Assessment
             {
-                objAssessmentName = "Assessment 1",
-                objAssessemntType = "Objective Assessment",
-                objAssessmentNotification = true, 
-                startObjAssessment = DateTime.Today.AddMonths(1),
-                endObjAssessment = DateTime.Today.AddMonths(1).AddDays(1),
+                AssessmentName = "Assessment 1",
+                AssessmentType = "Objective Assessment",
+                AssessmentNotification = true, 
+                startAssessment = DateTime.Today.AddMonths(1),
+                endAssessment = DateTime.Today.AddMonths(1).AddDays(1),
                 courseId = course.cId
             };
             await _db.InsertAsync(assessment);
             Assessment assessment2 = new Assessment
             {
-                objAssessmentName = "Assessment 2",
-                objAssessemntType = "Performance Assessment",
-                objAssessmentNotification = true,
-                startObjAssessment = DateTime.Today.AddMonths(1),
-                endObjAssessment = DateTime.Today.AddMonths(1).AddDays(3),
+                AssessmentName = "Assessment 2",
+                AssessmentType = "Performance Assessment",
+                AssessmentNotification = true,
+                startAssessment = DateTime.Today.AddMonths(1),
+                endAssessment = DateTime.Today.AddMonths(1).AddDays(3),
                 courseId = course.cId
             };
             await _db.InsertAsync(assessment2);
@@ -296,11 +297,11 @@ namespace C971ScheduleApp.Service
                                     "Zachariah M Ruggiero", 5789391, "zruggie@wgu.edu", lastRowId);
             lastRowId = await _db.ExecuteScalarAsync<int>("SELECT last_insert_rowid()");
 
-            await _db.ExecuteAsync(@"INSERT INTO Assessment(ASSEMENTNAME, ASSESSMENTTYPE, STARTASSESSMENT, ENDASSESSMENT, COURSEID)
-                                    VALUES(?,?,?,?)", "Assessment 1", "Objective Assessment", 
+            await _db.ExecuteAsync(@"INSERT INTO Assessment(ASSESSMENTID, ASSEMENTNAME, ASSESSMENTTYPE, STARTASSESSMENT, ENDASSESSMENT, COURSEID)
+                                    VALUES(?,?,?,?,?,?)", 1, "Assessment 1", "Objective Assessment", 
                                     DateTime.Today.AddDays(25), DateTime.Today.AddDays(26), lastRowId );
-            await _db.ExecuteAsync(@"INSERT INTO Assessment(ASSEMENTNAME, ASSESSMENTTYPE, STARTASSESSMENT, ENDASSESSMENT)
-                                    VALUES(?,?,?,?)", "Assessment 2", "Performance Assessment",
+            await _db.ExecuteAsync(@"INSERT INTO Assessment(ASSESSMENTID, ASSEMENTNAME, ASSESSMENTTYPE, STARTASSESSMENT, ENDASSESSMENT, COURSEID)
+                                    VALUES(?,?,?,?,?,?)", 2, "Assessment 2", "Performance Assessment",
                                     DateTime.Today.AddDays(27), DateTime.Today.AddDays(28), lastRowId);
 
         }
@@ -319,6 +320,20 @@ namespace C971ScheduleApp.Service
             int assessmentCount = await _db.ExecuteScalarAsync<int>($"SELECT COUNT(*) FROM Assessment WHERE courseId = ?", selectedCourseId);
 
             return assessmentCount;
+        }
+
+        public static async Task<int> GetPACount(int selectedCourseId)
+        {
+            int paCount = await _db.ExecuteScalarAsync<int>($"SELECT COUNT(*) FROM Assessment WHERE courseId = ? AND AssessmentType = 'Performance Assessment'", selectedCourseId);
+
+            return paCount;
+        }
+
+        public static async Task<int> GetOACount(int selectedCourseId)
+        {
+            int oaCount = await _db.ExecuteScalarAsync<int>($"SELECT COUNT(*) FROM Assessment WHERE courseId = ? AND AssessmentType = 'Objective Assessment' ", selectedCourseId);
+
+            return oaCount;
         }
         #endregion
 

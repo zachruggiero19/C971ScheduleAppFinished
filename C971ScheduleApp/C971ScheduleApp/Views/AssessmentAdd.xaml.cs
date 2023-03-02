@@ -17,6 +17,7 @@ namespace C971ScheduleApp.Views
         {
             InitializeComponent();
             _selectedCourseId = courseId;
+            
         }
         public ObjectiveAssessmentAdd()
         {
@@ -25,6 +26,8 @@ namespace C971ScheduleApp.Views
 
         async void ObjAddSave_Clicked(object sender, EventArgs e)
         {
+            var paCheck = DataBaseService.GetPACount(_selectedCourseId);
+            var oaCheck = DataBaseService.GetOACount(_selectedCourseId);
 
             if (string.IsNullOrWhiteSpace(AssessmentName.Text))
             {
@@ -34,12 +37,27 @@ namespace C971ScheduleApp.Views
             if (StartDate.Date > EndDate.Date)
             {
                 await DisplayAlert("Enter a Starting Date before End date", "Enter an appropriate Start or end Time", "OK");
+                return;
+            }
+            if (await paCheck == 1 && AssessmentType.SelectedItem.ToString() == "Performance Assessment")
+            {
+                await DisplayAlert("You already have that type of assessment.", "Please delete the matching assessment", "Ok");
+                return;
+            }
+            if (await oaCheck == 1 && AssessmentType.SelectedItem.ToString() == "Objective Assessment")
+            {
+                await DisplayAlert("You already have that type of assessment.", "Please delete the matching assessment", "Ok");
+                return;
             }
 
 
             await DataBaseService.AddAssessment(_selectedCourseId, AssessmentName.Text, AssessmentType.SelectedItem.ToString(),
-                                                    Notification.IsToggled, StartDate.Date, EndDate.Date);
-            await Navigation.PopAsync();
+                                           Notification.IsToggled, StartDate.Date, EndDate.Date);
+                await Navigation.PopAsync();
+            
+
+               
+            
 
         }
 

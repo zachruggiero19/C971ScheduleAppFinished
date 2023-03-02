@@ -20,11 +20,11 @@ namespace C971ScheduleApp.Views
             _selectedObjAssessmentId = assessment.AssessmentId;
 
             AssessmentId.Text = assessment.AssessmentId.ToString();
-            AssessmentName.Text = assessment.objAssessmentName;
-            AssessmentType.SelectedItem = assessment.objAssessemntType;
-            StartDate.Date = assessment.startObjAssessment;
-            EndDate.Date = assessment.endObjAssessment;
-            Notification.IsToggled = assessment.objAssessmentNotification;
+            AssessmentName.Text = assessment.AssessmentName;
+            AssessmentType.Text = assessment.AssessmentType;
+            StartDate.Date = assessment.startAssessment;
+            EndDate.Date = assessment.endAssessment;
+            Notification.IsToggled = assessment.AssessmentNotification;
         }
 
         public ObjectiveAssessmentEdit()
@@ -35,6 +35,7 @@ namespace C971ScheduleApp.Views
 
         async void SaveObjAssessment_Clicked(object sender, EventArgs e)
         {
+           
             if (string.IsNullOrWhiteSpace(AssessmentName.Text))
             {
                 await DisplayAlert("Missing Assessment Name", "Please Enter a Name", "Ok");
@@ -43,10 +44,14 @@ namespace C971ScheduleApp.Views
             if (StartDate.Date > EndDate.Date)
             {
                 await DisplayAlert("Enter a Starting Date before End date", "Enter an appropriate Start or end Time", "OK");
+                return;
             }
-            await DataBaseService.UpdateAssessment(_selectedObjAssessmentId, AssessmentName.Text, AssessmentType.SelectedItem.ToString(),
-                                                    Notification.IsToggled, StartDate.Date, EndDate.Date);
-            await Navigation.PopAsync();
+            
+                await DataBaseService.UpdateAssessment(_selectedObjAssessmentId, AssessmentName.Text, AssessmentType.Text.ToString(),
+                                        Notification.IsToggled, StartDate.Date, EndDate.Date);
+                await Navigation.PopAsync();
+            
+
         }
 
 

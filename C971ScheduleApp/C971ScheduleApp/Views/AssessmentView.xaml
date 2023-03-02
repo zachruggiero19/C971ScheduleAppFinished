@@ -39,15 +39,15 @@
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Label Text="{Binding objAssessmentId}" FontSize="Small" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center"/>
+                <Label Text="{Binding AssessmentId}" FontSize="Small" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center"/>
                 <Label Grid.Row="1" FontSize="Small" VerticalTextAlignment="Center" FontAttributes ="Bold">Assessment Name</Label>
-                <Label Text="{Binding objAssessmentName}" FontSize="Small" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center"/>
+                <Label Text="{Binding AssessmentName}" FontSize="Small" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center"/>
                 <Label Grid.Row="2" FontSize="Small" VerticalTextAlignment="Center" FontAttributes="Bold">Assessment Type</Label>
-                <Label Text="{Binding objAssessemntType}" Grid.Row="2" Grid.Column="1" FontSize="Small" VerticalTextAlignment="Center"/>
+                <Label Text="{Binding AssessmentType}" Grid.Row="2" Grid.Column="1" FontSize="Small" VerticalTextAlignment="Center"/>
                 <Label Grid.Row="3" FontSize="Small" VerticalTextAlignment="Center" FontAttributes="Bold">Assessment Start</Label>
-                <Label Text="{Binding startObjAssessment}" Grid.Row="3" Grid.Column="1" FontSize="Small" VerticalTextAlignment="Center"/>
+                <Label Text="{Binding startAssessment}" Grid.Row="3" Grid.Column="1" FontSize="Small" VerticalTextAlignment="Center"/>
                 <Label Grid.Row="4" FontSize="Small" VerticalTextAlignment="Center" FontAttributes="Bold">Assessment End</Label>
-                <Label Text="{Binding endObjAssessment}" Grid.Row="5" Grid.Column="1" FontSize="Small" VerticalTextAlignment="Center"/>
+                <Label Text="{Binding endAssessment}" Grid.Row="5" Grid.Column="1" FontSize="Small" VerticalTextAlignment="Center"/>
                         </Grid>
                         </DataTemplate>
                 </CollectionView.ItemTemplate>
