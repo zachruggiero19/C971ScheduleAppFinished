@@ -15,8 +15,10 @@ namespace C971ScheduleApp
 
             if (CourseSettings.FirstRun)
             {
+               
+
                 DataBaseService.LoadSampleData();
-                DataBaseService.LoadSampleDataSql();
+               //DataBaseService.LoadSampleDataSql();
 
                 CourseSettings.FirstRun = false;
             }

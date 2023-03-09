@@ -20,6 +20,7 @@ namespace C971ScheduleApp.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+            var termList = await DataBaseService.GetTerm();
             var courseList = await DataBaseService.GetCourse();
             var AssessmentList = await DataBaseService.GetAssessment();
             var notifyRandom = new Random();
@@ -54,17 +55,6 @@ namespace C971ScheduleApp.Views
                     if (assessment.startAssessment == DateTime.Today)
                     {
                         CrossLocalNotifications.Current.Show("Notice", $"{assessment.AssessmentName} begins today!", notifyId);
-                    }
-                }
-            }
-
-            foreach (Assessment assessment in AssessmentList)
-            {
-                if (assessment.AssessmentNotification == true)
-                {
-                    if (assessment.endAssessment == DateTime.Today)
-                    {
-                        CrossLocalNotifications.Current.Show("Notice", $"{assessment.AssessmentName} ends today!", notifyId);
                     }
                 }
             }

@@ -192,8 +192,8 @@ namespace C971ScheduleApp.Service
         {
             await Init();
 
-            var objAssessments = await _db.Table<Assessment>().ToListAsync();
-            return objAssessments;
+            var Assessments = await _db.Table<Assessment>().ToListAsync();
+            return Assessments;
         }
 
 
@@ -206,12 +206,14 @@ namespace C971ScheduleApp.Service
             var assessmentQuery = await _db.Table<Assessment>()
                 .Where(i => i.AssessmentId == id)
                 .FirstOrDefaultAsync();
+            assessmentQuery.AssessmentId = id;
+            assessmentQuery.AssessmentName = assessmentName;
+            assessmentQuery.AssessmentType = assessmentType;
+            assessmentQuery.AssessmentNotification = assessmentNotification;
+            assessmentQuery.startAssessment = startAssessment;
+            assessmentQuery.endAssessment = endAssessment;
 
-                assessmentQuery.AssessmentName = assessmentName;
-                assessmentQuery.AssessmentType = assessmentType;
-                assessmentQuery.AssessmentNotification = assessmentNotification;
-                assessmentQuery.startAssessment = startAssessment;
-                assessmentQuery.endAssessment = endAssessment;
+            await _db.UpdateAsync(assessmentQuery);
         }
 
 
@@ -297,11 +299,11 @@ namespace C971ScheduleApp.Service
                                     "Zachariah M Ruggiero", 5789391, "zruggie@wgu.edu", lastRowId);
             lastRowId = await _db.ExecuteScalarAsync<int>("SELECT last_insert_rowid()");
 
-            await _db.ExecuteAsync(@"INSERT INTO Assessment(ASSESSMENTID, ASSEMENTNAME, ASSESSMENTTYPE, STARTASSESSMENT, ENDASSESSMENT, COURSEID)
-                                    VALUES(?,?,?,?,?,?)", 1, "Assessment 1", "Objective Assessment", 
+            await _db.ExecuteAsync(@"INSERT INTO Assessment(ASSESSMENTNAME, ASSESSMENTTYPE, STARTASSESSMENT, ENDASSESSMENT, COURSEID)
+                                    VALUES(?,?,?,?,?)", "Assessment 1", "Objective Assessment", 
                                     DateTime.Today.AddDays(25), DateTime.Today.AddDays(26), lastRowId );
-            await _db.ExecuteAsync(@"INSERT INTO Assessment(ASSESSMENTID, ASSEMENTNAME, ASSESSMENTTYPE, STARTASSESSMENT, ENDASSESSMENT, COURSEID)
-                                    VALUES(?,?,?,?,?,?)", 2, "Assessment 2", "Performance Assessment",
+            await _db.ExecuteAsync(@"INSERT INTO Assessment(ASSESSMENTNAME, ASSESSMENTTYPE, STARTASSESSMENT, ENDASSESSMENT, COURSEID)
+                                    VALUES(?,?,?,?,?)", "Assessment 2", "Performance Assessment",
                                     DateTime.Today.AddDays(27), DateTime.Today.AddDays(28), lastRowId);
 
         }
