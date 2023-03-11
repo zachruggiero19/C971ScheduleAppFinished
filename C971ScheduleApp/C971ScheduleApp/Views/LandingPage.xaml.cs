@@ -20,7 +20,7 @@ namespace C971ScheduleApp.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            var termList = await DataBaseService.GetTerm();
+           
             var courseList = await DataBaseService.GetCourse();
             var AssessmentList = await DataBaseService.GetAssessment();
             var notifyRandom = new Random();
