@@ -4,5 +4,6 @@
     <SelectedDevice>tester_pixel2</SelectedDevice>
     <ActiveDebugProfile>tester_pixel2</ActiveDebugProfile>
     <DefaultDevice>tester_pixel2</DefaultDevice>
+    <SelectedPlatformGroup>Emulator</SelectedPlatformGroup>
   </PropertyGroup>
 </Project>

@@ -387,12 +387,12 @@ namespace C971ScheduleApp.Service
             return records2;
         }
 
-        public static async Task<List<Assessment>> GetNotifyObjAssessmentAsync()
-        {
-            await Init();
-            var records3 = dbConnection.Query<Assessment>("SELECT * FROM ObjectiveAssessment");
-            return records3;
-        }
+        //public static async Task<List<Assessment>> GetNotifyObjAssessmentAsync()
+        //{
+        //    await Init();
+        //    var records3 = dbConnection.Query<Assessment>("SELECT * FROM ObjectiveAssessment");
+        //    return records3;
+        //}
 
 
         public static async Task<IEnumerable<Term>> GetNotifyTerm()
